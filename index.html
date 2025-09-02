@@ -8,8 +8,22 @@
 </head>
 <body>
     <div class="video-background">
-        <!-- Removido o atributo 'loop' daqui -->
-        <video autoplay muted id="myVideo"></video> 
+        <video autoplay muted id="myVideo"></video>
+    </div>
+
+    <!-- Container para os botões de controle flutuantes -->
+    <div class="video-control-buttons-container">
+        <!-- Botão flutuante para o Home (Voltar ao modo aleatório) -->
+        <button class="video-control-button home-video-button">
+            <img src="assets/imagens/home.png" alt="Home Icon">
+            <span>Home</span>
+        </button>
+
+        <!-- Botão flutuante para o vídeo da Frieren -->
+        <button class="video-control-button frieren-video-button" data-video-src="assets/video/FrierenVsFrieren.mp4">
+            <img src="assets/imagens/Frieren.png" alt="Frieren Icon">
+            <span>Frieren</span>
+        </button>
     </div>
 
     <div class="content">

@@ -1,42 +1,55 @@
 # Meu Site Anime 🎥
 
-Um projeto simples de site com **vídeos de fundo aleatórios**, desenvolvido como parte dos meus estudos, com a ajuda da **Inteligência Artificial** (IA).  
-O objetivo é praticar HTML, CSS e JavaScript, entendendo como manipular elementos de vídeo e criar uma interface agradável.
+Este é um projeto **de estudo**, desenvolvido por mim como estudante de Análise e Desenvolvimento de Sistemas, com a ajuda da **Inteligência Artificial**.  
+O objetivo é praticar conceitos de **HTML**, **CSS** e **JavaScript**, criando um site simples com vídeos de fundo que mudam de forma dinâmica.
+
+---
 
 ## 🚀 Demonstração Online
 
-🔗 [Veja o projeto no GitHub](https://leronchi.github.io/MeuSiteAnime/)
+🔗 [Veja o projeto no GitHub Pages](https://leronchi.github.io/MeuSiteAnime/)
 
-
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5** → Estrutura do site
-- **CSS3** → Estilização e layout responsivo
-- **JavaScript** → Lógica para alternar vídeos de fundo aleatoriamente
+- **HTML5** → Estrutura e organização da página
+- **CSS3** → Estilização, posicionamento e efeitos visuais
+- **JavaScript** → Lógica para controle dos vídeos, troca aleatória e botões interativos
+
+---
+
 
 ## 📂 Estrutura do Projeto
 
 MeuSiteAnime/
 ├── index.html # Página principal
 ├── style.css # Estilos do site
-├── script.js # Lógica para troca de vídeos
+├── script.js # Lógica para reprodução dos vídeos
 └── assets/
-└── video/ # Pasta com os vídeos usados no background
+├── video/ # Vídeos usados no background
+└── imagens/ # Ícones dos botões de controle
 
+---
 
 ## 💡 Funcionalidades
 
-- Vídeos de fundo em tela cheia
-- Alteração automática para um vídeo aleatório quando o atual termina
-- Conteúdo (título, texto e botão) centralizado com fundo semi-transparente para melhor leitura
+- Vídeos de fundo em tela cheia com **troca aleatória**.
+- **Botões flutuantes** para escolher um vídeo específico ou voltar ao modo aleatório.
+- Retorno automático ao modo aleatório alguns segundos após um vídeo específico terminar.
+- Layout responsivo, com contraste de texto para melhor leitura sobre o vídeo.
 
-## 📚 Objetivo do Projeto
+---
 
-Este projeto foi criado como **exercício de aprendizado**, focado em:
-- Praticar manipulação do DOM com JavaScript
-- Aprender sobre reprodução de mídia na web
-- Criar uma interface simples, porém funcional
+## 🎯 Objetivo do Projeto
+
+Este projeto faz parte do meu aprendizado prático, onde pude:
+- Treinar manipulação do DOM com JavaScript.
+- Aprender a trabalhar com reprodução de mídia e eventos de vídeo.
+- Criar uma interface interativa e funcional.
+- Desenvolver com boas práticas de organização de código e arquivos.
+
+---
 
 ## 🧠 Apoio da IA
 
@@ -45,3 +58,4 @@ Grande parte do projeto foi elaborado com o suporte da **IA (AI Studio)**, que a
 ---
 
 ✍️ **Autor**: [Leandro Ronchi](https://github.com/LeRonchi)
+📅 **Status**: Em desenvolvimento — projeto de estudo.

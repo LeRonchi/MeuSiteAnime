@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white; /* Cor do texto para contrastar com o vídeo */
+    overflow-x: hidden;
 }
 
 .video-background {
@@ -19,6 +20,54 @@ body {
     height: 100%;
     object-fit: cover; /* Garante que o vídeo cubra toda a área */
 }
+
+/* Container para os botões de controle flutuantes */
+.video-control-buttons-container {
+    position: fixed;
+    top: 50%; /* Centraliza o container verticalmente */
+    left: 20px; /* Distância da borda esquerda */
+    transform: translateY(-50%); /* Ajuste para centralizar perfeitamente */
+    display: flex;
+    flex-direction: column; /* Organiza os botões em coluna */
+    gap: 20px; /* Espaçamento entre os botões */
+    z-index: 999;
+}
+
+/* Estilos comuns para botões de controle de vídeo flutuantes */
+.video-control-button {
+    width: 150px; /* Largura ajustada para caber texto e ícone */
+    height: 60px; /* Altura do botão */
+    border-radius: 30px; /* Deixa o botão mais oval */
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borda para destaque */
+    color: white; /* Cor do texto */
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex; /* Para alinhar imagem e texto */
+    align-items: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+    padding: 0 15px; /* Padding horizontal para o texto */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.video-control-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.03); /* Efeito de leve aumento ao passar o mouse */
+}
+
+.video-control-button img {
+    width: 40px; /* Tamanho da imagem dentro do botão */
+    height: 40px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    pointer-events: none; /* Garante que o clique seja no botão, não na imagem */
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+/* O texto já está dentro do span, então o CSS acima já o alcança */
+
 
 .content {
     position: relative;

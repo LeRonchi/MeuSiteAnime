@@ -5,7 +5,7 @@ O objetivo é praticar HTML, CSS e JavaScript, entendendo como manipular element
 
 ## 🚀 Demonstração Online
 
-🔗 [Veja o projeto no GitHub](https://github.com/LeRonchi/MeuSiteAnime)
+🔗 [Veja o projeto no GitHub](https://leronchi.github.io/MeuSiteAnime/)
 
 
 

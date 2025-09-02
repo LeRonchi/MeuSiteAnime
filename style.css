@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* Cor do texto para contrastar com o vídeo */
+}
+
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    overflow: hidden;
+}
+
+#myVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo cubra toda a área */
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Coloca o conteúdo acima do vídeo */
+    padding: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para melhor leitura */
+    min-height: 100vh; /* Garante que o conteúdo tenha pelo menos a altura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    max-width: 800px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

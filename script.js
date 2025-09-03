@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const descriptions = {
         home: `Este site é uma expressão da minha paixão pelo universo dos animes — histórias que me inspiram, emocionam e me fazem refletir. Criado como parte dos meus estudos em HTML, CSS e JavaScript, ele representa não só meu gosto pessoal, mas também minha evolução como estudante de Análise e Desenvolvimento de Sistemas.
         Com o apoio da inteligência artificial, consegui transformar ideias em código, explorando conceitos de design, interatividade e estrutura web. Cada detalhe foi pensado para unir aprendizado técnico com criatividade e identidade própria.`,
-        frieren: `Frieren:
+        frieren: `Frieren: Além do Fim.
         Após uma década enfrentando perigos ao lado do lendário herói Himmel e seu grupo, a poderosa maga elfa Frieren cumpre sua missão: derrotar o Rei Demônio e restaurar a paz no reino. Mas, para ela, que vive por milênios, essa vitória é apenas um breve capítulo.
         Frieren parte em uma jornada solitária, prometendo reencontrar seus amigos. Cinquenta anos se passam — um piscar de olhos para uma elfa, mas uma eternidade para humanos. Quando finalmente retorna, ela encontra seus companheiros envelhecidos, à beira do fim. A morte de Himmel a confronta com um arrependimento profundo: ter negligenciado o valor do tempo compartilhado.
         Movida por esse sentimento, Frieren embarca em uma nova jornada, não para salvar o mundo, mas para entender melhor as pessoas e os laços que as unem. Ao longo do caminho, ela viverá aventuras emocionantes, conhecerá novos aliados e descobrirá que, mesmo com séculos pela frente, o presente é o que realmente importa.`,
-        lordOfMysteries: `Lord of the Mysteries:
+        lordOfMysteries: `Lord of the Mysteries: O Despertar do Louco.
         Zhou Mingrui acorda em um corpo que não é seu. Agora como Klein Moretti, ele se vê lançado em uma realidade alternativa inspirada no período vitoriano — um mundo onde máquinas a vapor convivem com poções mágicas, sociedades secretas e forças ocultas que desafiam a lógica.
         Preso entre avanços tecnológicos e mistérios sobrenaturais, Klein mergulha em uma espiral de segredos cada vez mais sombrios. Seu caminho o leva a confrontos com igrejas — ortodoxas ou heréticas — e a descobrir que o mundo é muito mais complexo do que aparenta.
         Guiado pelas poções Beyonder, Klein começa a despertar habilidades extraordinárias ligadas ao arquétipo do tarô que carrega: O Louco. À medida que explora os limites dessa carta, ele revela poderes infinitos e dá início à construção de uma lenda — a lenda de “O Louco”.`

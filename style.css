@@ -1,8 +1,11 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: white; /* Cor do texto para contrastar com o vídeo */
+    color: white;
     overflow-x: hidden;
+    /* Garante que o body ocupe 100% da viewport */
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 .video-background {
@@ -11,14 +14,14 @@ body {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    z-index: -1;
     overflow: hidden;
 }
 
 #myVideo {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que o vídeo cubra toda a área */
+    object-fit: cover;
     min-width: 100%;
     min-height: 100%;
 }
@@ -26,58 +29,55 @@ body {
 /* Container para os botões de controle flutuantes */
 .video-control-buttons-container {
     position: fixed;
-    top: 50%; /* Centraliza o container verticalmente */
-    left: 20px; /* Distância da borda esquerda */
-    transform: translateY(-50%); /* Ajuste para centralizar perfeitamente */
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
     display: flex;
-    flex-direction: column; /* Organiza os botões em coluna */
-    gap: 20px; /* Espaçamento entre os botões */
+    flex-direction: column;
+    gap: 20px;
     z-index: 999;
 }
 
 /* Estilos comuns para botões de controle de vídeo flutuantes */
 .video-control-button {
-    width: 150px; /* Largura ajustada para caber texto e ícone */
-    height: 60px; /* Altura do botão */
-    border-radius: 30px; /* Deixa o botão mais oval */
-    background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Borda para destaque */
-    color: white; /* Cor do texto */
+    width: 150px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
     font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex; /* Para alinhar imagem e texto */
+    display: flex;
     align-items: center;
-    gap: 10px; /* Espaço entre ícone e texto */
-    padding: 0 15px; /* Padding horizontal para o texto */
+    gap: 10px;
+    padding: 0 15px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-decoration: none; /* Remove sublinhado se for um link */
+    text-decoration: none;
 }
 
 .video-control-button:hover {
     background-color: rgba(255, 255, 255, 0.4);
-    transform: scale(1.03); /* Efeito de leve aumento ao passar o mouse */
+    transform: scale(1.03);
 }
 
 .video-control-button img {
-    width: 40px; /* Tamanho da imagem dentro do botão */
+    width: 40px;
     height: 40px;
-    border-radius: 50%; /* Deixa a imagem redonda */
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    pointer-events: none; /* Garante que o clique seja no botão, não na imagem */
-    flex-shrink: 0; /* Impede que a imagem encolha */
+    border-radius: 50%;
+    object-fit: cover;
+    pointer-events: none;
+    flex-shrink: 0;
 }
-
-/* O texto já está dentro do span, então o CSS acima já o alcança */
-
 
 .content {
     position: relative;
-    z-index: 1; /* Coloca o conteúdo acima do vídeo */
+    z-index: 1;
     padding: 50px;
     text-align: center;
-    min-height: 100vh; /* Garante que o conteúdo tenha pelo menos a altura da tela */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,7 +87,7 @@ body {
 h1 {
     font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra para melhor contraste */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 p {
@@ -95,132 +95,189 @@ p {
     max-width: 800px;
     line-height: 1.5;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adiciona sombra para melhor contraste */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* Novos estilos para o botão de ação flutuante */
+/* Novos estilos para a área de ação flutuante */
 .action-area-container {
     position: fixed;
-    bottom: 0; /* Alinha na parte inferior */
+    bottom: 0;
     left: 0;
     width: 100%;
     display: flex;
-    flex-direction: column; /* Para empilhar o texto e o botão */
+    flex-direction: column;
     align-items: center;
-    z-index: 998; /* Abaixo dos botões de controle de vídeo */
-    transition: transform 0.3s ease-out; /* Transição para a subida */
-    /* MODIFICAÇÃO: Inicia com o botão visível, mas o texto escondido */
-    transform: translateY(0); 
+    z-index: 998;
+    transition: transform 0.3s ease-out;
+    transform: translateY(0);
 }
 
 .action-area-container.active {
-    /* MODIFICAÇÃO: Sobe o suficiente para revelar o texto.
-       O valor exato pode precisar de ajuste dependendo da altura do texto.
-       Estou usando um valor estimado aqui. */
+    /* O valor exato pode precisar de ajuste dependendo da altura do texto. */
     transform: translateY(-200px); /* Exemplo: Sobe 200px. Ajuste conforme necessário */
 }
 
 .action-text {
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para o texto */
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 20px 30px;
-    max-width: 800px; /* Limita a largura do texto */
-    margin: 0 auto; /* Centraliza o texto */
-    text-align: justify; /* Alinha o texto justificado */
-    margin-bottom: -2px; /* Remove o espaço entre o texto e o botão */
-    border-radius: 5px 5px 0 0; /* Arredonda as bordas superiores */
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra para cima */
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    margin-bottom: -2px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
     font-size: 1.1em;
     line-height: 1.5;
-    opacity: 0; /* Começa invisível */
+    opacity: 0;
     transition: opacity 0.3s ease-out;
 }
 
 .action-area-container.active .action-text {
-    opacity: 1; /* Torna visível quando ativo */
+    opacity: 1;
 }
 
-
 .action-button {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente */
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Borda para destaque */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     color: white;
     padding: 15px 30px;
-    border-radius: 5px 5px 0 0; /* Bordas arredondadas apenas no topo */
+    border-radius: 5px 5px 0 0;
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra para cima */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .action-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px); /* Leve subida no hover */
+    transform: translateY(-5px);
 }
 
 
-/* --- Responsive adjustments --- */
+/* --- Responsive adjustments for ALL devices --- */
 
-/* Message for portrait mode on mobile */
-@media (orientation: portrait) and (max-width: 768px) {
+/* Message for portrait mode on mobile (and small tablets) */
+@media (orientation: portrait) and (max-width: 1024px) { /* Expandido para tablets também */
+    body {
+        overflow: hidden; /* Remove scrollbars in portrait */
+    }
     body::before {
-        content: "Por favor, vire seu celular para a horizontal para uma melhor experiência de vídeo!";
+        content: "Por favor, vire seu dispositivo para a horizontal para uma melhor experiência de vídeo!";
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0, 0, 0, 0.95); /* Um pouco mais escuro */
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.5em;
+        font-size: 1.8em; /* Um pouco maior */
         text-align: center;
         z-index: 1000;
         padding: 20px;
         box-sizing: border-box;
+        line-height: 1.4;
     }
 
     .video-background, .video-control-buttons-container, .content, .action-area-container {
-        visibility: hidden; /* Hide content when in portrait mode */
+        visibility: hidden;
+        pointer-events: none; /* Desabilita cliques em elementos invisíveis */
     }
 }
 
-/* Adjustments for smaller screens in landscape mode */
-@media (max-width: 1024px) {
+/* Base for wider screens (laptops, desktops) */
+@media (min-width: 1025px) {
     .video-control-buttons-container {
-        left: 10px; /* Reduce distance from left */
-        gap: 15px; /* Reduce gap between buttons */
+        left: 30px; /* Mais espaço da borda em telas grandes */
+        gap: 25px;
     }
 
     .video-control-button {
-        width: 130px; /* Slightly smaller buttons */
-        height: 55px;
-        font-size: 1em;
-        padding: 0 10px;
+        width: 180px;
+        height: 70px;
+        font-size: 1.2em;
     }
 
     .video-control-button img {
-        width: 35px;
-        height: 35px;
+        width: 45px;
+        height: 45px;
     }
 
     h1 {
-        font-size: 2.5em;
+        font-size: 4em; /* Maior em telas grandes */
     }
 
     p {
-        font-size: 1em;
-        padding: 0 20px; /* Add horizontal padding to paragraph */
+        font-size: 1.4em;
+        max-width: 900px;
     }
 
-    /* MODIFICAÇÃO para telas menores */
+    .action-text {
+        font-size: 1.2em;
+        padding: 25px 40px;
+        max-width: 900px;
+    }
+
+    .action-button {
+        padding: 18px 35px;
+        font-size: 1.2em;
+    }
+
     .action-area-container.active {
-        transform: translateY(-180px); /* Ajusta a subida em telas menores */
+        transform: translateY(-220px); /* Ajuste para texto mais alto em telas grandes */
     }
 }
 
+
+/* Adjustments for medium screens (tablets in landscape, small laptops) */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .video-control-buttons-container {
+        left: 15px;
+        gap: 18px;
+    }
+
+    .video-control-button {
+        width: 140px;
+        height: 55px;
+        font-size: 1em;
+        padding: 0 12px;
+    }
+
+    .video-control-button img {
+        width: 38px;
+        height: 38px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+
+    p {
+        font-size: 1.1em;
+        max-width: 700px;
+    }
+
+    .action-text {
+        font-size: 1em;
+        padding: 18px 25px;
+        max-width: 700px;
+    }
+
+    .action-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+
+    .action-area-container.active {
+        transform: translateY(-180px); /* Ajuste para texto em tablets paisagem */
+    }
+}
+
+
+/* Adjustments for small screens (mobile in landscape) */
 @media (max-width: 768px) and (orientation: landscape) {
     .video-control-buttons-container {
         left: 5px;
@@ -258,16 +315,18 @@ p {
         font-size: 0.9em;
     }
 
-    /* MODIFICAÇÃO para celular na horizontal */
-    .action-area-container.active {
-        transform: translateY(-150px); /* Ajusta a subida em telas de celular na horizontal */
+    .action-text {
+        font-size: 0.9em;
+        padding: 10px 15px;
+        max-width: 90%; /* Ajuste para ocupar quase toda a largura */
     }
+
     .action-button {
         padding: 10px 20px;
         font-size: 1em;
     }
-    .action-text {
-        font-size: 0.9em;
-        padding: 10px 15px;
+
+    .action-area-container.active {
+        transform: translateY(-150px); /* Ajusta a subida em telas de celular na horizontal */
     }
 }

@@ -19,6 +19,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Garante que o vídeo cubra toda a área */
+    min-width: 100%;
+    min-height: 100%;
 }
 
 /* Container para os botões de controle flutuantes */
@@ -50,6 +52,7 @@ body {
     gap: 10px; /* Espaço entre ícone e texto */
     padding: 0 15px; /* Padding horizontal para o texto */
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Remove sublinhado se for um link */
 }
 
 .video-control-button:hover {
@@ -74,7 +77,6 @@ body {
     z-index: 1; /* Coloca o conteúdo acima do vídeo */
     padding: 50px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para melhor leitura */
     min-height: 100vh; /* Garante que o conteúdo tenha pelo menos a altura da tela */
     display: flex;
     flex-direction: column;
@@ -85,6 +87,7 @@ body {
 h1 {
     font-size: 3em;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra para melhor contraste */
 }
 
 p {
@@ -92,19 +95,179 @@ p {
     max-width: 800px;
     line-height: 1.5;
     margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adiciona sombra para melhor contraste */
 }
 
-button {
-    background-color: #007bff;
+/* Novos estilos para o botão de ação flutuante */
+.action-area-container {
+    position: fixed;
+    bottom: 0; /* Alinha na parte inferior */
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Para empilhar o texto e o botão */
+    align-items: center;
+    z-index: 998; /* Abaixo dos botões de controle de vídeo */
+    transition: transform 0.3s ease-out; /* Transição para a subida */
+    /* MODIFICAÇÃO: Inicia com o botão visível, mas o texto escondido */
+    transform: translateY(0); 
+}
+
+.action-area-container.active {
+    /* MODIFICAÇÃO: Sobe o suficiente para revelar o texto.
+       O valor exato pode precisar de ajuste dependendo da altura do texto.
+       Estou usando um valor estimado aqui. */
+    transform: translateY(-200px); /* Exemplo: Sobe 200px. Ajuste conforme necessário */
+}
+
+.action-text {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para o texto */
+    color: white;
+    padding: 20px 30px;
+    max-width: 800px; /* Limita a largura do texto */
+    margin: 0 auto; /* Centraliza o texto */
+    text-align: justify; /* Alinha o texto justificado */
+    margin-bottom: -2px; /* Remove o espaço entre o texto e o botão */
+    border-radius: 5px 5px 0 0; /* Arredonda as bordas superiores */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra para cima */
+    font-size: 1.1em;
+    line-height: 1.5;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease-out;
+}
+
+.action-area-container.active .action-text {
+    opacity: 1; /* Torna visível quando ativo */
+}
+
+
+.action-button {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borda para destaque */
     color: white;
     padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0; /* Bordas arredondadas apenas no topo */
     font-size: 1.1em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra para cima */
 }
 
-button:hover {
-    background-color: #0056b3;
+.action-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px); /* Leve subida no hover */
+}
+
+
+/* --- Responsive adjustments --- */
+
+/* Message for portrait mode on mobile */
+@media (orientation: portrait) and (max-width: 768px) {
+    body::before {
+        content: "Por favor, vire seu celular para a horizontal para uma melhor experiência de vídeo!";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+        text-align: center;
+        z-index: 1000;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .video-background, .video-control-buttons-container, .content, .action-area-container {
+        visibility: hidden; /* Hide content when in portrait mode */
+    }
+}
+
+/* Adjustments for smaller screens in landscape mode */
+@media (max-width: 1024px) {
+    .video-control-buttons-container {
+        left: 10px; /* Reduce distance from left */
+        gap: 15px; /* Reduce gap between buttons */
+    }
+
+    .video-control-button {
+        width: 130px; /* Slightly smaller buttons */
+        height: 55px;
+        font-size: 1em;
+        padding: 0 10px;
+    }
+
+    .video-control-button img {
+        width: 35px;
+        height: 35px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 1em;
+        padding: 0 20px; /* Add horizontal padding to paragraph */
+    }
+
+    /* MODIFICAÇÃO para telas menores */
+    .action-area-container.active {
+        transform: translateY(-180px); /* Ajusta a subida em telas menores */
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .video-control-buttons-container {
+        left: 5px;
+        gap: 10px;
+        top: 10px; /* Move to top left corner to save space */
+        transform: none;
+        flex-direction: row; /* Arrange buttons horizontally */
+        width: auto;
+        justify-content: flex-start;
+    }
+    
+    .video-control-button {
+        width: 110px;
+        height: 45px;
+        font-size: 0.9em;
+        padding: 0 8px;
+    }
+
+    .video-control-button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .content {
+        padding: 20px;
+        min-height: calc(100vh - 60px); /* Adjust content height */
+        margin-top: 60px; /* Push content down to avoid buttons */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    /* MODIFICAÇÃO para celular na horizontal */
+    .action-area-container.active {
+        transform: translateY(-150px); /* Ajusta a subida em telas de celular na horizontal */
+    }
+    .action-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .action-text {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
 }

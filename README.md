@@ -27,8 +27,8 @@ MeuSiteAnime/
 ├── style.css # Estilos do site
 ├── script.js # Lógica para reprodução dos vídeos
 └── assets/
-├── video/ # Vídeos usados no background
-└── imagens/ # Ícones dos botões de controle
+    ├── video/ # Vídeos usados no background
+    └── imagens/ # Ícones dos botões de controle
 
 ---
 
@@ -38,6 +38,8 @@ MeuSiteAnime/
 - **Botões flutuantes** para escolher um vídeo específico ou voltar ao modo aleatório.
 - Retorno automático ao modo aleatório alguns segundos após um vídeo específico terminar.
 - Layout responsivo, com contraste de texto para melhor leitura sobre o vídeo.
+- Mensagem de orientação para usuários de celular em modo retrato, sugerindo virar o aparelho para o modo paisagem para melhor visualização dos vídeos.
+- **Botão de Ação flutuante na parte inferior da tela, que revela um texto contextualizado com o vídeo em reprodução ao ser clicado.**
 
 ---
 
